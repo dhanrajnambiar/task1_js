@@ -1,0 +1,5 @@
+15th jan 2018:
+--------------
+started with assignment 1
+completed beginner and interemediate tutorials in www.htmldog.com javascript tutorials
+learning how to open files in javascript in scratchpad
