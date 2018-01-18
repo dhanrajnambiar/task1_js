@@ -1,3 +1,54 @@
+18th jan 2018:
+-------------
+Used "<meta http-equiv="Content-Type" content="text/html; charset=utf-8">" to include malayalam letters to html page
+
+tried out using HTML canvas..
+____________________________
+
+<canvas id="myCanvas" width="200" height="100"
+style="border:1px solid #d3d3d3;">
+</canvas>
+above canvas tags create a rectangular boxes.
+
+<script>
+var canvas = document.getElementById("myCanvas");
+var xx = canvas.getContext("2d");
+xx.font = "30px Arial";
+xx.fillText("Hello World",10,50);
+</script>
+
+Print the letters from json file inside bounding box:(works fine)
+_____________________________________________________
+
+function my_func(data) {
+  var my_data = JSON.parse(data);
+  var box_id_suffix = "box";
+
+  for (var i = 0; i < my_data.length; i++){
+      var bb_name = box_id_suffix + i;
+      var divi = document.createElement("DIV");
+
+      var bbox = document.createElement("CANVAS");
+      bbox.setAttribute('width',"1000");
+      bbox.setAttribute('height','300');
+      bbox.setAttribute('id',bb_name);
+      bbox.setAttribute('style',"border:1px solid #000000;");
+
+      divi.appendChild(bbox);
+      document.body.appendChild(divi);
+
+      var txt = document.getElementById(bb_name);
+      var msg = txt.getContext("2d");
+      msg.font = "30px Georgia";
+      msg.fillText(my_data[i]['txt'],my_data[i]['x'] / 5,my_data[i]['y'] / 5);
+  }
+}
+
+But location of some letters inside the box are not seen,
+as their cordinates are very high values, higher than that of box size..
+
+
+
 15th jan 2018:
 --------------
 started with assignment 1
