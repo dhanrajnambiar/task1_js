@@ -1,4 +1,4 @@
-function my_func(data) {
+function display(data) {
   var my_data = JSON.parse(data);
   var box_id_suffix = "box";
 
@@ -18,16 +18,28 @@ function my_func(data) {
   document.body.appendChild(t);//appending table to body
   for (var i = 0; i < my_data.length; i++){
       var bb_name = box_id_suffix + i;//type = string ;id attribute of bbox object
+      var td_2_id = "id_td_2:" + i;//id of content of td_2
+      var td_2_txt = JSON.stringify(my_data[i]);//content of td_2
 
       var tr = document.createElement("TR");
+      var td_1 = document.createElement("TD");
+
+      var td_2 = document.createElement("TD");
+      td_2.setAttribute('id',td_2_id);
+
       var bbox = document.createElement("CANVAS");
 
-      bbox.setAttribute('width',"250");
-      bbox.setAttribute('height',"400");
+      bbox.setAttribute('width',"400");//width of bounding box
+      bbox.setAttribute('height',"500");//height of bounding box
       bbox.setAttribute('id',bb_name);
       bbox.setAttribute('style',"border:1px solid #000000;");
 
-      tr.appendChild(bbox); //appendChild function forms sort of connection of lower branch to next upper branch of DOM tree
+      var txx = document.createTextNode(td_2_txt);
+
+      td_1.appendChild(bbox); //appendChild function forms sort of connection of lower branch to next upper branch of DOM tree
+      td_2.appendChild(txx);
+      tr.appendChild(td_1);
+      tr.appendChild(td_2);
       t.appendChild(tr);//appending should start from the lower levels ,
       // so bbox to tr done first followed by tr to t
 
@@ -38,7 +50,6 @@ function my_func(data) {
       var new_y = normalize(max_val_y, min_val_y, my_data[i]['y'], range_y);
       msg.fillText(my_data[i]['txt'], new_x, new_y);
   }
-  count_elements();
 }
 
 function normalize(max_actl, min_actl, val, range_dict) {//we want to limit to range range_dict[min]<x<range_dict[max]

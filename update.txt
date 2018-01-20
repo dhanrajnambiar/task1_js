@@ -1,3 +1,8 @@
+20th jan 2018:
+-------------
+created files sample.html and sample.js to display the GBoxes and the corresponding data from json file supplied.
+edited some of functions
+
 19th jan 2018:
 --------------
 Included a function normalize() to scale the values of location of 'txt' within the bounding box
