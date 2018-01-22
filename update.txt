@@ -1,3 +1,9 @@
+22nd jan 2018:
+-------------
+redone whole thing in side single bounding box
+
+PLEASE OPEN "redone/a.html" after downloading the folder redone.
+
 20th jan 2018:
 -------------
 created files sample.html and sample.js to display the GBoxes and the corresponding data from json file supplied.
